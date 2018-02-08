@@ -4,16 +4,90 @@
 .image-box {
   height: 100%;
   display: inline-block;
+  min-height: 200px;
 }
-.show-image {
-  display: inline-block;
-  margin-top: 20px;
-  float: right;
+.image-box .image-content {
+  display: flex;
+  height: 200px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .playlist-builder {
   display: none;
   width: 100%;
+}
+
+.now-playing {
+  height: 100%;
+  display: inline-block;
+  min-height: 200px;
+}
+
+.now-playing .name-content {
+  display: flex;
+  height: 200px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.buttons {
+  display: flex;
+  min-height: 200px;
+}
+
+.buttons .play-btn {
+  display: flex;
+  height: 200px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.buttons .first {
+  width: 40%;
+  padding: 0;
+  background-image: url('/assets/images/btn-bg.png');
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.buttons .first .live {
+  width: 40%;
+  padding: 0;
+  background-image: url('/assets/images/btn-bg-active.png');
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.buttons .second {
+  width: 40%;
+  padding: 0;
+  background-image: url('/assets/images/btn-bg.png');
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.buttons .second .live {
+  width: 40%;
+  padding: 0;
+  background-image: url('/assets/images/btn-bg-active.png');
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.buttons #progressBar {
+  display: none;
+}
+
+.btn {
+  background-color: white;
 }
 
 .logo {
@@ -41,6 +115,7 @@
 
 .socials-home {
   display: inline-block;
+  min-height: 200px;
 }
 .shows {
   height: 200px;

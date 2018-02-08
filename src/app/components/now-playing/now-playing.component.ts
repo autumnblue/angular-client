@@ -47,6 +47,8 @@ export class NowPlayingComponent implements OnInit, OnDestroy {
   facebook:string;
   youtube:string;
   instagram:string;
+  firstLive: boolean = false;
+  secondLive: boolean = false;
 
   constructor(
     private npService: NowPlayingService,
@@ -68,7 +70,6 @@ export class NowPlayingComponent implements OnInit, OnDestroy {
     this.facebook = 'https://www.facebook.com/cjlo1690am/';
     this.instagram = 'https://www.instagram.com/cjlo1690am/';
    }
-
   ngOnInit() {
     this.show.getUniqueTags().subscribe(data => {
       this.tags = data;
@@ -145,6 +146,7 @@ export class NowPlayingComponent implements OnInit, OnDestroy {
     })
 
 
+    console.log('!!!!!!!!!!!', this.secondLive);
     this.timer
       .takeWhile(() => this.alive)
       .subscribe(() => {
@@ -254,6 +256,7 @@ export class NowPlayingComponent implements OnInit, OnDestroy {
   }
 
   live(){
+    this.firstLive = !this.firstLive;
     this.radio = true;
     this.src = 'http://rosetta.shoutca.st:8883/stream';
     if($('.playlist-builder').is(':visible')) {
@@ -263,7 +266,7 @@ export class NowPlayingComponent implements OnInit, OnDestroy {
 
 
   toggleBuilder(){
-
+    this.secondLive = !this.secondLive;
     this.radio = false;
 
     if(document.cookie){
@@ -318,14 +321,15 @@ track1(){
 readCookieArray(){
   var allcookies = document.cookie;
 
-
+console.log(allcookies);
   // Get all the cookies pairs in an array
-  let cookiearray = allcookies.split(';');
-
-  let prs = JSON.parse(cookiearray[0].split('=')[1])
-
-
-  return prs.tracks[0];
+  // let cookiearray = allcookies.split(';');
+  //
+  // let prs = JSON.parse(cookiearray[0].split('=')[1])
+  //
+  //
+  // return prs.tracks[0];
+  return '';
 
 }
 

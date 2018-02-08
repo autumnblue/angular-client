@@ -85,6 +85,7 @@ setHeaders(){
     var result = tokens.join(delimiter);
 
     return 'http://34.198.177.246:3000/'+ result;
+    //return 'http://192.168.0.52:3000/'+ result;
     }
   }
 }

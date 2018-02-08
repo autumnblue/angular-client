@@ -1,6 +1,6 @@
 <div class="row main-wrapper">
 
-  <div class="col-md-5 socials-home">
+  <div class="col-md-4 socials-home">
 
     <div class="logo">
       <img class="front-logo-img" src="{{this.authService.returnIp()}}public/assets/assets/main-logo.png" (click)="goHome()" />
@@ -14,13 +14,17 @@
     </div>
   </div>
 
-  <div class="col-md-2 image-box">
-    <img class="show-image" src="{{this.authService.returnIp()}}{{currentShow?.thumbnailPath}}">
+  <div class="col-md-1 image-box">
+    <div class="image-content">
+      <img class="show-image" src="{{this.authService.returnIp()}}{{currentShow?.thumbnailPath}}">
+    </div>
   </div>
 
   <div class="col-md-2 now-playing">
 
-    <h3 class="page-header">{{currentShow?.name}}</h3>
+    <div class="name-content">
+      <h3 class="page-header">{{currentShow?.name}}</h3>
+    </div>
 
     <div *ngIf="currentTrack && (currentTrack.classification == 'Theme')">
       <p><strong>Now Playing:</strong> {{currentTrack?.artist}} - {{currentTrack?.title}}</p>
@@ -32,16 +36,16 @@
     </div>
   </div>
 
-  <div class="col-md-3 buttons">
-    <i class="fa fa-play fa-2x play-pause" (click)="play()" *ngIf="!playing"></i>
-    <i class="fa fa-pause fa-2x" (click)="pause()" *ngIf="playing"></i>
-    <input type="range" [ngModel]="volume" (ngModelChange)="changeVolume($event)" step="0.01" min="0" max="1">
-    <button class="btn btn-primary" (click)="live()" >LISTEN TO CKLO LIVE</button>
-    <button class="btn btn-primary" (click)="toggleBuilder()" >BUILD YOUR PLSYLIST</button>
+  <div class="col-md-5 buttons">
+    <div class="play-btn">
+      <i class="fa fa-play fa-2x play-pause" (click)="play()" *ngIf="!playing"></i>
+      <i class="fa fa-pause fa-2x" (click)="pause()" *ngIf="playing"></i>
+    </div>
+    <!-- <input type="range" [ngModel]="volume" (ngModelChange)="changeVolume($event)" step="0.01" min="0" max="1"> -->
+    <button [ngClass]="{'live': firstLive}" class="btn first" (click)="live()" ><span>LISTEN TO CJLO LIVE</span></button>
+    <button [ngClass]="{'live': secondLive}" class="btn second" (click)="toggleBuilder()" ><span>BUILD YOUR PLAYLIST</span></button>
 
     <div *ngIf="!radio" id="progressBar" (click)="skip($event)"><span id="progress"></span></div>
-
-
   </div>
 </div>
 

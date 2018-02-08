@@ -1,8 +1,19 @@
 .wrapper {
   width: 100%;
-  border: 1px solid black;
-  margin-top: 10px;
+  margin-top: 50px;
   margin-bottom: 25px;
+}
+
+.wrapper .search-content {
+  text-align: center;
+}
+
+.wrapper .search-content .search-input {
+  margin-top: 128px;
+}
+
+.wrapper .search-content img {
+  width: 20%;
 }
 
 .link-list {
